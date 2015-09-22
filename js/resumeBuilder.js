@@ -2,7 +2,7 @@
 //==========================================================================
 var bio = {
     "name": "Sage Elliott",
-    "role": " Web Developer",
+    "role": "Web Developer",
     "message": "Hello, World!",
     "contacts": {
         "mobile": "321.917.0306",
@@ -22,6 +22,24 @@ $("#header").prepend(formattedRole);
 
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 $("#header").prepend(formattedName);
+
+var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.message);
+$("#header").append(formattedWelcomeMessage);
+
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+$("#topContacts").append(formattedMobile);
+
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+$("#topContacts").append(formattedEmail);
+
+var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+$("#topContacts").append(formattedGithub);
+
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+$("#topContacts").append(formattedLocation);
+
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic)
+$("#header").append(formattedBioPic);
 
 if(bio.skills.length > 0) {
 
