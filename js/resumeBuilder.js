@@ -12,10 +12,18 @@ var bio = {
         "location": "Seattle, WA"
     },
     "skills": [
-        "HTML, CSS, Javascript, Python"
+        "HTML", "CSS", "Javascript", "Python"
     ],
     "bioPic": "http://sageelliott.com/img/sage.jpg"
 };
+
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+$("#header").prepend(formattedRole);
+
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+$("#header").prepend(formattedName);
+
+
 
 
 // Work History
