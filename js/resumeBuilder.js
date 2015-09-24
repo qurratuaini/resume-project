@@ -156,6 +156,30 @@ var projects = {
     }
 ]};
 
+projects.display = function(){
+    for(project in projects.projects){
+
+        $("#projects").append(HTMLprojectStart);
+
+        formattedProjectTitle= HTMLprojectTitle.replace("%data%",projects.projects[project].title);
+            $(".project-entry:last").append(formattedProjectTitle);
+
+        formattedProjectDates= HTMLprojectDates.replace("%data%",projects.projects[project].datesWorked);
+            $(".project-entry:last").append(formattedProjectDates);
+
+        formattedProjectDescription= HTMLprojectDescription.replace("%data%",projects.projects[project].description);
+            $(".project-entry:last").append(formattedProjectDescription);
+
+            if(projects.projects[project].images.length>0){
+
+                for (image in projects.projects[project].images)
+                formattedProjectImage= HTMLprojectImage.replace("%data%",projects.projects[project].images[image]);
+            $(".project-entry:last").append(formattedProjectImage);
+
+            }
+        }
+}
+
 // Education
 //==========================================================================
 
@@ -186,6 +210,7 @@ var education = {
         }
     ]
 };
+
 
 // Internationalize Name
 //==========================================================================
@@ -220,4 +245,5 @@ $(document).click(function(loc){
 //==========================================================================
 
 displayWork();
+projects.display();
 
