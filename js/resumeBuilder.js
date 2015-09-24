@@ -63,42 +63,63 @@ var work = {
     "jobs": [
         {
             "employer": "Transworld Advertising",
-            "title": "Assistant teacher",
-            "datesWorked": "October 2014 - July 2015",
+            "title": "Web & ad designer",
+            "datesWorked": "October 2014 - Jan 2015",
             "location": "Melbourne, Florida",
-            "description": "Prepared students for examinations with conversation and exercises"
+            "description": "Create & implement web hosted content management system to radically increase product quality, consistency & workflow throughout company.<br> Create & post high volume of web based ads."
         },
         {
             "employer": "ARGT Reliability Solutions",
             "title": "Senior Reliability Engineering Consultant",
-            "datesWorked": "date - date",
+            "datesWorked": "Jan 2014 - Oct 2014",
             "location": "Melbourne, Florida",
-            "description": "I did cool stuff!"
+            "description": "Implement and perform all reliability procedures and testing needed to create & maintain high quality products, reduce cost and improve customer satisfaction. <br>Manage operations to complete Testing, Failure Analysis, and Reporting. <br>Lead marketing and design to develop a professional presence and relationship with clients."
         },
         {
             "employer": "Lighting Science Group Corporation",
             "title": "Reliability Engineering Technician",
-            "datesWorked": "date - date",
+            "datesWorked": "Sept 2010 - Nov 2013",
             "location": "Melbourne, Florida",
-            "description": "I did cool stuff!"
+            "description": "Develop, perform, & report Reliability Testing & Life Data Analysis procedures <br>Diagnose product failures to component level(Field & Engineerings units) <br>Create & Maintain Design Failure Mode & Effects Analysis (DFMEA) to improve quality of product"
         },
         {
             "employer": "Best Buy Geek Squad",
             "title": "In-store Computer repair and support",
-            "datesWorked": "date - date",
+            "datesWorked": "Jun 2009 - Oct 2010",
             "location": "Melbourne, Florida",
-            "description": "I did cool stuff!"
+            "description": "Perform in-store diagnostic, maintenance & repair on consumer electronics <br>Provide exceptional customer service & tech support in-store & over phone"
         },
         {
             "employer": "DRS Tactical Solutions",
-            "title": "Assistant teacher",
-            "datesWorked": "date - date",
+            "title": "Test Operator A",
+            "datesWorked": "Jul 2010 - Sept 2010",
             "location": "Melbourne, Florida",
-            "description": "I did cool stuff!"
+            "description": "Setup, test, calibrate, & diagnose tactical military computer systems"
         }
     ]
 };
 
+for(job in work.jobs){
+    $("#workExperience").append(HTMLworkStart);
+
+    var formattedEmployer= HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+
+    var formattedJobTitle= HTMLworkTitle.replace("%data%",work.jobs[job].title);
+
+    var formattedEmployerTitle = formattedEmployer + formattedJobTitle;
+
+    $(".work-entry:last").append(formattedEmployerTitle);
+
+    var formattedDates= HTMLworkDates.replace("%data%",work.jobs[job].datesWorked);
+    $(".work-entry:last").append(formattedDates);
+
+    var formattedLocation= HTMLworkLocation.replace("%data%", work.jobs[job].location);
+    $(".work-entry:last").append(formattedLocation);
+
+    var formattedDescription= HTMLworkDescription.replace("%data%", work.jobs[job].description);
+    $(".work-entry:last").append(formattedDescription);
+
+}
 // Projects
 //==========================================================================
 
