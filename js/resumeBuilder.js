@@ -244,6 +244,8 @@ $(document).click(function(loc){
 // Call functions
 //==========================================================================
 
+
 displayWork();
 projects.display();
 
+$("#mapDiv").append(googleMap);
