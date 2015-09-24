@@ -155,7 +155,7 @@ var projects = {
     "projects":[{
         "title": "Project 1",
         "datesWorked": "Date",
-        "description" : "Cool stuff about project 2",
+        "description" : "Cool stuff about project 1",
         "images":["images/197x148.gif"]
     },
     {
@@ -177,16 +177,18 @@ projects.display = function(){
         formattedProjectDates= HTMLprojectDates.replace("%data%",projects.projects[project].datesWorked);
             $(".project-entry:last").append(formattedProjectDates);
 
-        formattedProjectDescription= HTMLprojectDescription.replace("%data%",projects.projects[project].description);
-            $(".project-entry:last").append(formattedProjectDescription);
-
-            if(projects.projects[project].images.length>0){
+        if(projects.projects[project].images.length>0){
 
                 for (image in projects.projects[project].images)
                 formattedProjectImage= HTMLprojectImage.replace("%data%",projects.projects[project].images[image]);
             $(".project-entry:last").append(formattedProjectImage);
 
             }
+
+        formattedProjectDescription= HTMLprojectDescription.replace("%data%",projects.projects[project].description);
+            $(".project-entry:last").append(formattedProjectDescription);
+
+
         }
 }
 
