@@ -11,7 +11,8 @@ var bio = {
         "mobile": "321.917.0306",
         "email": "hello@sageelliott.com",
         "github": "https://github.com/sageio",
-        "twitter": "@sagecoder",
+        "website": "sageelliott.com",
+        "twitter": "https://twitter.com/sagecoder",
         "location": "Seattle, WA"
     },
     "skills": [
@@ -28,23 +29,24 @@ bio.display = function(){
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
     $("#header").prepend(formattedName);
 
-    var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.message);
-    $("#header").append(formattedWelcomeMessage);
-
-    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+    var formattedMobile = HTMLmobile.replace(/%data%/g, bio.contacts.mobile);
     $("#topContacts").append(formattedMobile);
 
-    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+    var formattedEmail = HTMLemail.replace(/%data%/g, bio.contacts.email);
     $("#topContacts").append(formattedEmail);
 
-    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+    var formattedGithub = HTMLgithub.replace(/%data%/g, bio.contacts.github);
     $("#topContacts").append(formattedGithub);
 
-    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-    $("#topContacts").append(formattedLocation);
+
+    var formattedTwitter = HTMLtwitter.replace(/%data%/g, bio.contacts.twitter);
+    $("#topContacts").append(formattedTwitter);
 
     var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic)
     $("#header").append(formattedBioPic);
+
+    var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.message);
+    $("#header").append(formattedWelcomeMessage);
 
     if(bio.skills.length > 0) {
 
