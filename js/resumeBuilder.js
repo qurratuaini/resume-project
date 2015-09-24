@@ -190,26 +190,93 @@ var education = {
             "degree": "Associates Degree",
             "location": "Melbourne, Florida",
             "majors": [
-                "Compsi"
+                "Computer science & repair"
             ],
-            "datesAttended": "Date"
+            "datesAttended": "May 2013"
         }
     ],
     "onlineCourses": [
         {
-            "title": "Intro to HTML and CSS",
+            "title": "Full Stack Nanodegree",
             "school": "Udacity",
-            "dates": "Date",
-            "url": "https://www.udacity.com/course/ud304"
+            "dates": "Sept 2015",
+            "url": "https://www.udacity.com"
         },
         {
-            "title": "How to use Git and Github",
+            "title": "Front-End Nanodegree",
             "school": "Udacity",
-            "dates": "Date",
-            "url": "https://www.udacity.com/course/ud775"
+            "dates": "Sept 2015",
+            "url": "https://www.udacity.com"
         }
     ]
 };
+
+education.display = function(){
+
+    $("#education").append(HTMLschoolStart);
+
+    for(school in education.schools){
+
+
+
+        formattedSchoolName= HTMLschoolName.replace("%data%",education.schools[school].name);
+            $(".education-entry:last").append(formattedSchoolName);
+
+
+        formattedSchoolDegree= HTMLschoolDegree.replace("%data%",education.schools[school].degree);
+            $(".education-entry:last").append(formattedSchoolDegree);
+
+
+
+        formattedDates= HTMLschoolDates.replace("%data%",education.schools[school].datesAttended);
+            $(".education-entry:last").append(formattedDates);
+
+
+
+        formattedSchoolLocation= HTMLschoolLocation.replace("%data%",education.schools[school].location);
+            $(".education-entry:last").append(formattedSchoolLocation);
+
+        if(education.schools[school].majors.length>0){
+
+                for (major in education.schools[school].majors){
+
+                    formattedSchoolMajor= HTMLschoolMajor.replace("%data%",education.schools[school].majors[major]);
+
+                    $(".education-entry:last").append(formattedSchoolMajor);
+                }
+
+        }
+
+
+
+        }
+
+$(".education-entry:last").append(HTMLonlineClasses);
+
+    for(course in education.onlineCourses){
+
+
+        formattedOnlineTitle= HTMLonlineTitle.replace("%data%",education.onlineCourses[course].title);
+                    $(".education-entry:last").append(formattedOnlineTitle);
+
+        formattedOnlineSchool= HTMLonlineSchool.replace("%data%",education.onlineCourses[course].school);
+                    $(".education-entry:last").append(formattedOnlineSchool);
+
+        formattedOnlineDates= HTMLonlineDates.replace("%data%",education.onlineCourses[course].dates);
+                    $(".education-entry:last").append(formattedOnlineDates);
+
+        formattedOnlineUrl= HTMLonlineURL.replace("%data%",education.onlineCourses[course].url);
+                    $(".education-entry:last").append(formattedOnlineUrl);
+
+
+
+
+
+    }
+
+
+}
+
 
 
 // Internationalize Name
@@ -247,5 +314,6 @@ $(document).click(function(loc){
 
 displayWork();
 projects.display();
+education.display();
 
 $("#mapDiv").append(googleMap);
