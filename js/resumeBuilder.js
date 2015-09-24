@@ -39,8 +39,6 @@ bio.display = function(){
     $("#topContacts").append(formattedGithub);
 
 
-    var formattedTwitter = HTMLtwitter.replace(/%data%/g, bio.contacts.twitter);
-    $("#topContacts").append(formattedTwitter);
 
     var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic)
     $("#header").append(formattedBioPic);
@@ -63,6 +61,22 @@ bio.display = function(){
 
         formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
         $("#skills").append(formattedSkill);
+
+    //footer contact info
+    var formattedTwitter = HTMLtwitter.replace(/%data%/g, bio.contacts.twitter);
+    $("#topContacts").append(formattedTwitter);
+
+    var formattedMobile = HTMLmobile.replace(/%data%/g, bio.contacts.mobile);
+    $("#footerContacts").append(formattedMobile);
+
+    var formattedEmail = HTMLemail.replace(/%data%/g, bio.contacts.email);
+    $("#footerContacts").append(formattedEmail);
+
+    var formattedGithub = HTMLgithub.replace(/%data%/g, bio.contacts.github);
+    $("#footerContacts").append(formattedGithub);
+
+    var formattedTwitter = HTMLtwitter.replace(/%data%/g, bio.contacts.twitter);
+    $("#footerContacts").append(formattedTwitter);
     };
 
 }
