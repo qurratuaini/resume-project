@@ -7,7 +7,7 @@ var bio = {
     "contacts": {
         "mobile": "321.917.0306",
         "email": "hello@sageelliott.com",
-        "github": "sageio",
+        "github": "https://github.com/sageio",
         "twitter": "@sagecoder",
         "location": "Seattle, WA"
     },
@@ -52,6 +52,9 @@ if(bio.skills.length > 0) {
     $("#skills").append(formattedSkill);
 
     formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+    $("#skills").append(formattedSkill);
+
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
     $("#skills").append(formattedSkill);
 };
 
@@ -99,7 +102,7 @@ var work = {
     ]
 };
 
-displayWork = function(){
+work.display = function(){
 
     for(job in work.jobs){
         $("#workExperience").append(HTMLworkStart);
@@ -129,29 +132,15 @@ displayWork = function(){
 
 var projects = {
     "projects":[{
-        "title": "Portfolio Project",
+        "title": "Project 1",
         "datesWorked": "Date",
-        "description" : "Uses HTML, CSS and Bootstrap to create a website that showcases my work",
+        "description" : "Cool stuff about project 2",
         "images":["images/197x148.gif"]
     },
     {
         "title": "Project 2",
         "datesWorked": "Date",
         "description" : "Cool stuff about project 2",
-        "images":["images/197x148.gif"]
-    },
-
-    {
-        "title": "Project 3",
-        "datesWorked": "Date",
-        "description" : "Cool Stuff about project 3",
-        "images":["images/197x148.gif"]
-    },
-
-    {
-        "title": "Project 4",
-        "datesWorked": "Date",
-        "description" : "Cool Stuff about Project 4",
         "images":["images/197x148.gif"]
     }
 ]};
@@ -311,8 +300,7 @@ $(document).click(function(loc){
 // Call functions
 //==========================================================================
 
-
-displayWork();
+work.display();
 projects.display();
 education.display();
 
